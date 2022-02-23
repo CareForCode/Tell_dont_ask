@@ -2,7 +2,7 @@ package super_mario;
 
 public class Game {
 
-    public void loop(Mario mario) {
+    public void gameLoop(Mario mario) {
         if (wasHit(mario)) {
             if (mario.getStatus() == Status.BIG) {
                 mario.setStatus(Status.SMALL);
@@ -15,9 +15,14 @@ public class Game {
             if (lifeCount < 2) {
                 quitGame();
             } else {
-
+                mario.setLifeCount(--lifeCount);
+                startAgain();
             }
         }
+    }
+
+    private void startAgain() {
+
     }
 
     private void quitGame() {
