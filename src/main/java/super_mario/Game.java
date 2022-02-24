@@ -7,10 +7,10 @@ public class Game {
             if (mario.getStatus() == Status.BIG) {
                 mario.setStatus(Status.SMALL);
             } else if (mario.getStatus() == Status.SMALL) {
-                mario.setStatus(Status.DEAD);
+                mario.setStatus(Status.DEFEATED);
             }
         }
-        if (mario.getStatus() == Status.DEAD) {
+        if (mario.getStatus() == Status.DEFEATED) {
             int lifeCount = mario.getLifeCount();
             if (lifeCount < 2) {
                 quitGame();
