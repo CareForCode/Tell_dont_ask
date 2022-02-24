@@ -14,7 +14,7 @@ public class Game {
             int lifeCount = mario.getLifeCount();
             if (lifeCount > 1) {
                 mario.setLifeCount(--lifeCount);
-                startAgain();
+                gameLoop(mario);
             } else {
                 quitGame();
             }
