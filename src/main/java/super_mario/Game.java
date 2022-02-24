@@ -12,11 +12,11 @@ public class Game {
         }
         if (mario.getState() == State.DEFEATED) {
             int lifeCount = mario.getLifeCount();
-            if (lifeCount < 2) {
-                quitGame();
-            } else {
+            if (lifeCount > 1) {
                 mario.setLifeCount(--lifeCount);
                 startAgain();
+            } else {
+                quitGame();
             }
         }
     }
