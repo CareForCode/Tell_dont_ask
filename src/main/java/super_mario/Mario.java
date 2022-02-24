@@ -1,20 +1,20 @@
 package super_mario;
 
 public class Mario {
-    private Status status;
+    private State state;
     private int lifeCount;
 
     public Mario() {
-        status = Status.BIG;
+        state = State.BIG;
         lifeCount = 3;
     }
 
-    public Status getStatus() {
-        return status;
+    public State getState() {
+        return state;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setState(State state) {
+        this.state = state;
     }
 
     public int getLifeCount() {
