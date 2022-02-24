@@ -1,5 +1,5 @@
 package super_mario;
 
-public enum Status {
+public enum State {
     BIG, DEFEATED, SMALL
 }
