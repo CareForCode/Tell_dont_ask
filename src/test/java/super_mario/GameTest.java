@@ -1,25 +1,24 @@
 package super_mario;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
 
     @ParameterizedTest
-    @EnumSource(State.class)
+    @EnumSource(value = State.class, names = {"SMALL", "BIG"})
     void gameLoop_With0Lives_isGameOver(State state) {
+        int lifeCount = 0;
         Game game = new Game(false);
-        Mario mario = new Mario(state,0);
+        Mario mario = new Mario(state, lifeCount);
 
         game.gameLoop(mario);
 
         assertGameOver(game);
+        assertMario(mario, state, lifeCount);
     }
 
     @Test
@@ -30,6 +29,12 @@ public class GameTest {
         game.gameLoop(mario);
 
         assertGameOver(game);
+        assertMario(mario, State.DEFEATED, 0);
+    }
+
+    private void assertMario(Mario mario, State expectedState, int expectedLifeCount) {
+        assertEquals(expectedState, mario.getState());
+        assertEquals(expectedLifeCount, mario.getLifeCount());
     }
 
     private void assertGameOver(Game game) {
