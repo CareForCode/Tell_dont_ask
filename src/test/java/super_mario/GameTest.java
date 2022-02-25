@@ -32,6 +32,18 @@ public class GameTest {
         assertMario(mario, State.DEFEATED, 0);
     }
 
+    @Test
+    void gameLoop_With1LifeIsHitAsBig_isStartAgain() {
+        Game game = new Game(true);
+        Mario mario = new Mario(State.BIG,1);
+
+        game.gameLoop(mario);
+
+        assertTrue(game.isStartAgain());
+        assertFalse(game.isGameOver());
+        assertMario(mario, State.SMALL, 1);
+    }
+
     private void assertMario(Mario mario, State expectedState, int expectedLifeCount) {
         assertEquals(expectedState, mario.getState());
         assertEquals(expectedLifeCount, mario.getLifeCount());

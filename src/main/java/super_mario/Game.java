@@ -22,7 +22,7 @@ public class Game {
         if (mario.getState() == State.DEFEATED) {
             mario.setLifeCount(mario.getLifeCount()-1);
         }
-        if (mario.getLifeCount() <= 1) {
+        if (mario.getLifeCount() <= 0) {
             quitGame();
         } else {
             startAgain();
