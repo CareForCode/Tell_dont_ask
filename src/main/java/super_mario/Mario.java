@@ -9,6 +9,11 @@ public class Mario {
         lifeCount = 3;
     }
 
+    public Mario(State state, int lifeCount) {
+        this.state = state;
+        this.lifeCount = lifeCount;
+    }
+
     public State getState() {
         return state;
     }
