@@ -39,9 +39,13 @@ public class GameTest {
 
         game.gameLoop(mario);
 
+        assertStartAgain(game);
+        assertMario(mario, State.SMALL, 1);
+    }
+
+    private void assertStartAgain(Game game) {
         assertTrue(game.isStartAgain());
         assertFalse(game.isGameOver());
-        assertMario(mario, State.SMALL, 1);
     }
 
     private void assertMario(Mario mario, State expectedState, int expectedLifeCount) {
