@@ -25,10 +25,10 @@ public class Game {
         if (mario.getState() == State.DEFEATED) {
             mario.setLifeCount(mario.getLifeCount()-1);
         }
-        if (mario.getLifeCount() <= 0) {
-            gameOver();
-        } else {
+        if (mario.getLifeCount() > 0) {
             restartLevel();
+        } else {
+            gameOver();
         }
     }
 
