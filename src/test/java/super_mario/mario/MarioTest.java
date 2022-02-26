@@ -59,4 +59,16 @@ public class MarioTest {
         assertEquals(lifeCount-1, mario.getLifeCount());
     }
 
+    @Test
+    void isKnockedOut_StateKnockedOut_IsTrue() {
+        Mario mario = new Mario(State.KNOCKED_OUT, 1);
+        assertTrue(mario.isKnockedOut());
+    }
+
+    @Test
+    void isKnockedOut_StateBig_IsFalse() {
+        Mario mario = new Mario(State.BIG, 1);
+        assertFalse(mario.isKnockedOut());
+    }
+
 }
