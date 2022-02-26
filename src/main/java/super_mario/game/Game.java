@@ -19,10 +19,11 @@ public class Game {
         }
         if (mario.isKnockedOut()) {
             mario.reduceLifeCount();
+            if (mario.isAlive()) {
+                restartLevel();
+            }
         }
-        if (mario.isAlive()) {
-            restartLevel();
-        } else {
+        if (!mario.isAlive()) {
             gameOver();
         }
     }
