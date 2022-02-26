@@ -13,16 +13,12 @@ public class Game {
 
     public void gameLoop(Mario mario) {
         if (wasHit(mario)) {
-            if (mario.getState() == State.BIG) {
-                mario.setState(State.SMALL);
-            } else if (mario.getState() == State.SMALL) {
-                mario.setState(State.DEFEATED);
-            }
+            mario.reduceState();
         }
-        if (mario.getState() == State.DEFEATED) {
-            mario.setLifeCount(mario.getLifeCount()-1);
+        if (mario.isDefeated()) {
+            mario.reduceLifeCount();
         }
-        if (mario.getLifeCount() <= 0) {
+        if (mario.hasNoMoreLives()) {
             gameOver();
         } else {
             restartLevel();

@@ -9,19 +9,31 @@ public class Mario {
         this.lifeCount = lifeCount;
     }
 
-    public State getState() {
+    boolean hasNoMoreLives() {
+        return lifeCount <= 0;
+    }
+
+    void reduceLifeCount() {
+        lifeCount--;
+    }
+
+    boolean isDefeated() {
+        return state == State.DEFEATED;
+    }
+
+    void reduceState() {
+        if (state == State.BIG) {
+            state = State.SMALL;
+        } else if (state == State.SMALL) {
+            state = State.DEFEATED;
+        }
+    }
+
+    State getState() {
         return state;
     }
 
-    public void setState(State state) {
-        this.state = state;
-    }
-
-    public int getLifeCount() {
+    int getLifeCount() {
         return lifeCount;
-    }
-
-    public void setLifeCount(int lifeCount) {
-        this.lifeCount = lifeCount;
     }
 }
