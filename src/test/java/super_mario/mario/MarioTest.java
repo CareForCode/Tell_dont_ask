@@ -25,8 +25,8 @@ public class MarioTest {
     private static Stream<Arguments> reduceStateArguments() {
         return Stream.of(
                 Arguments.of(State.BIG, State.SMALL),
-                Arguments.of(State.SMALL, State.DEFEATED),
-                Arguments.of(State.DEFEATED, State.DEFEATED)
+                Arguments.of(State.SMALL, State.KNOCKED_OUT),
+                Arguments.of(State.KNOCKED_OUT, State.KNOCKED_OUT)
         );
     }
 
@@ -41,11 +41,11 @@ public class MarioTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"1,false", "0,true", "-1,true"})
-    void hasNoMoreLives_Parameterized(int lifeCount, boolean expectedResult) {
+    @CsvSource(value = {"1,true", "0,false", "-1,false"})
+    void isAlive_Parameterized(int lifeCount, boolean expectedResult) {
         Mario mario = new Mario(State.BIG, lifeCount);
 
-        assertEquals(expectedResult, mario.hasNoMoreLives());
+        assertEquals(expectedResult, mario.isAlive());
     }
 
 }

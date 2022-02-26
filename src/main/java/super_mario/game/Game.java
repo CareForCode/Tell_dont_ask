@@ -1,7 +1,6 @@
 package super_mario.game;
 
 import super_mario.mario.Mario;
-import super_mario.mario.State;
 
 public class Game {
 
@@ -18,13 +17,13 @@ public class Game {
         if (wasHit(mario)) {
             mario.reduceState();
         }
-        if (mario.isDefeated()) {
+        if (mario.isKnockedOut()) {
             mario.reduceLifeCount();
         }
-        if (mario.hasNoMoreLives()) {
-            gameOver();
-        } else {
+        if (mario.isAlive()) {
             restartLevel();
+        } else {
+            gameOver();
         }
     }
 
