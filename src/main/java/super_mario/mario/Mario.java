@@ -32,7 +32,11 @@ public class Mario {
     }
 
     public void reduceState() {
-        state = State.values()[Math.max(0, state.ordinal() -1)];
+        state = State.values()[getReducedStateOrdinal()];
+    }
+
+    private int getReducedStateOrdinal() {
+        return Math.max(0, state.ordinal() - 1);
     }
 
     State getState() {
