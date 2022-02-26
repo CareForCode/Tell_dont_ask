@@ -32,11 +32,7 @@ public class Mario {
     }
 
     public void reduceState() {
-        if (state == State.BIG) {
-            state = State.SMALL;
-        } else if (state == State.SMALL) {
-            state = State.KNOCKED_OUT;
-        }
+        state = State.values()[Math.max(0, state.ordinal() -1)];
     }
 
     State getState() {
