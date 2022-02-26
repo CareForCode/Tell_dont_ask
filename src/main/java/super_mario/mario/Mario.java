@@ -1,4 +1,4 @@
-package super_mario;
+package super_mario.mario;
 
 public class Mario {
     private State state;

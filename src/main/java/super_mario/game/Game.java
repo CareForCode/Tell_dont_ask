@@ -1,4 +1,7 @@
-package super_mario;
+package super_mario.game;
+
+import super_mario.mario.Mario;
+import super_mario.mario.State;
 
 public class Game {
 
