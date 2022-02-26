@@ -3,7 +3,6 @@ package super_mario.game;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import super_mario.game.Game;
 import super_mario.mario.Mario;
 import super_mario.mario.State;
 
@@ -32,7 +31,7 @@ public class GameTest {
         game.gameLoop(mario);
 
         assertGameOver(game);
-        assertMario(mario, State.DEFEATED, 0);
+        assertMario(mario, State.KNOCKED_OUT, 0);
     }
 
     @Test

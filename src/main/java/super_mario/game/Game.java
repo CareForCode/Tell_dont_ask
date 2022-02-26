@@ -19,10 +19,10 @@ public class Game {
             if (mario.getState() == State.BIG) {
                 mario.setState(State.SMALL);
             } else if (mario.getState() == State.SMALL) {
-                mario.setState(State.DEFEATED);
+                mario.setState(State.KNOCKED_OUT);
             }
         }
-        if (mario.getState() == State.DEFEATED) {
+        if (mario.getState() == State.KNOCKED_OUT) {
             mario.setLifeCount(mario.getLifeCount()-1);
         }
         if (mario.getLifeCount() > 0) {

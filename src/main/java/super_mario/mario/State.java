@@ -1,5 +1,5 @@
 package super_mario.mario;
 
 public enum State {
-    BIG, DEFEATED, SMALL
+    BIG, KNOCKED_OUT, SMALL
 }
