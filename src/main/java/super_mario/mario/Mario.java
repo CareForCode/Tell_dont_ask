@@ -39,6 +39,10 @@ public class Mario {
         }
     }
 
+    public boolean isDefeated() {
+        return !isAlive();
+    }
+
     State getState() {
         return state;
     }

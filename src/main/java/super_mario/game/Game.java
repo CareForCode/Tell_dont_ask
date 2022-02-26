@@ -23,7 +23,7 @@ public class Game {
                 restartLevel();
             }
         }
-        if (!mario.isAlive()) {
+        if (mario.isDefeated()) {
             gameOver();
         }
     }
