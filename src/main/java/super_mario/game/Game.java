@@ -19,9 +19,9 @@ public class Game {
         checkGameOver(mario);
     }
 
-    private void checkGameOver(Mario mario) {
-        if (mario.isDefeated()) {
-            gameOver();
+    private void reduceStateIfWasHit(Mario mario) {
+        if (wasHit(mario)) {
+            mario.reduceState();
         }
     }
 
@@ -38,9 +38,9 @@ public class Game {
         }
     }
 
-    private void reduceStateIfWasHit(Mario mario) {
-        if (wasHit(mario)) {
-            mario.reduceState();
+    private void checkGameOver(Mario mario) {
+        if (mario.isDefeated()) {
+            gameOver();
         }
     }
 
