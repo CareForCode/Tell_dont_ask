@@ -4,6 +4,16 @@ public class Mario {
     private State state;
     private int lifeCount;
 
+    public Mario(int lifeCount) {
+        this.state = State.BIG;
+        this.lifeCount = lifeCount;
+    }
+
+    public Mario(State state) {
+        this.state = state;
+        this.lifeCount = 1;
+    }
+
     public Mario(State state, int lifeCount) {
         this.state = state;
         this.lifeCount = lifeCount;

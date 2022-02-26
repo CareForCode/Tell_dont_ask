@@ -34,7 +34,7 @@ public class MarioTest {
     @ParameterizedTest
     @MethodSource(value = "reduceStateArguments")
     void reduceState_Parameterized(State initialState, State expectedState) {
-        Mario mario = new Mario(initialState, 1);
+        Mario mario = new Mario(initialState);
 
         mario.reduceState();
 
@@ -44,7 +44,7 @@ public class MarioTest {
     @ParameterizedTest
     @CsvSource(value = {"1,true", "0,false", "-1,false"})
     void isAlive_Parameterized(int lifeCount, boolean expectedResult) {
-        Mario mario = new Mario(State.BIG, lifeCount);
+        Mario mario = new Mario(lifeCount);
 
         assertEquals(expectedResult, mario.isAlive());
     }
@@ -52,7 +52,7 @@ public class MarioTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 20, -1, Integer.MAX_VALUE, Integer.MIN_VALUE})
     void reduceLifeCount_Parameterized(int lifeCount) {
-        Mario mario = new Mario(State.BIG, lifeCount);
+        Mario mario = new Mario(lifeCount);
 
         mario.reduceLifeCount();
 
@@ -61,13 +61,13 @@ public class MarioTest {
 
     @Test
     void isKnockedOut_StateKnockedOut_IsTrue() {
-        Mario mario = new Mario(State.KNOCKED_OUT, 1);
+        Mario mario = new Mario(State.KNOCKED_OUT);
         assertTrue(mario.isKnockedOut());
     }
 
     @Test
     void isKnockedOut_StateBig_IsFalse() {
-        Mario mario = new Mario(State.BIG, 1);
+        Mario mario = new Mario(State.BIG);
         assertFalse(mario.isKnockedOut());
     }
 
