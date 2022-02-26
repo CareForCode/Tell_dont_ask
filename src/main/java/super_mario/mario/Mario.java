@@ -42,4 +42,8 @@ public class Mario {
     int getLifeCount() {
         return lifeCount;
     }
+
+    public boolean isDefeated() {
+        return !isAlive();
+    }
 }

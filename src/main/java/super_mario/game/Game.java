@@ -15,21 +15,26 @@ public class Game {
 
     public void gameLoop(Mario mario) {
         reduceStateIfWasHit(mario);
-        reduceLifeIfKnockedOut(mario);
-        checkIsAlive(mario);
+        checkKnockOut(mario);
+        checkGameOver(mario);
     }
 
-    private void checkIsAlive(Mario mario) {
-        if (mario.isAlive()) {
-            restartLevel();
-        } else {
+    private void checkGameOver(Mario mario) {
+        if (mario.isDefeated()) {
             gameOver();
         }
     }
 
-    private void reduceLifeIfKnockedOut(Mario mario) {
+    private void checkKnockOut(Mario mario) {
         if (mario.isKnockedOut()) {
             mario.reduceLifeCount();
+            restartLevelIfAlive(mario);
+        }
+    }
+
+    private void restartLevelIfAlive(Mario mario) {
+        if (mario.isAlive()) {
+            restartLevel();
         }
     }
 
