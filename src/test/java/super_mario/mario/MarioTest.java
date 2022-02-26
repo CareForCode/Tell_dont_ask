@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.*;
 
@@ -46,6 +47,16 @@ public class MarioTest {
         Mario mario = new Mario(State.BIG, lifeCount);
 
         assertEquals(expectedResult, mario.isAlive());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 20, -1, Integer.MAX_VALUE, Integer.MIN_VALUE})
+    void reduceLifeCount_Parameterized(int lifeCount) {
+        Mario mario = new Mario(State.BIG, lifeCount);
+
+        mario.reduceLifeCount();
+
+        assertEquals(lifeCount-1, mario.getLifeCount());
     }
 
 }
