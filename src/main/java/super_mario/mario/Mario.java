@@ -4,12 +4,12 @@ public class Mario {
     private State state;
     private int lifeCount;
 
-    public Mario(int lifeCount) {
+    Mario(int lifeCount) {
         this.state = State.BIG;
         this.lifeCount = lifeCount;
     }
 
-    public Mario(State state) {
+    Mario(State state) {
         this.state = state;
         this.lifeCount = 1;
     }
