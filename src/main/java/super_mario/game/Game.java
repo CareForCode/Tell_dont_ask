@@ -24,10 +24,11 @@ public class Game {
         }
         if (mario.getState() == State.KNOCKED_OUT) {
             mario.setLifeCount(mario.getLifeCount()-1);
+            if (mario.getLifeCount() > 0) {
+                restartLevel();
+            }
         }
-        if (mario.getLifeCount() > 0) {
-            restartLevel();
-        } else {
+        if (mario.getLifeCount() <= 0) {
             gameOver();
         }
     }
