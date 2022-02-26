@@ -23,17 +23,17 @@ public class Game {
             mario.setLifeCount(mario.getLifeCount()-1);
         }
         if (mario.getLifeCount() <= 0) {
-            quitGame();
+            gameOver();
         } else {
-            startAgain();
+            restartLevel();
         }
     }
 
-    private void startAgain() {
+    private void restartLevel() {
         isStartAgain = true;
     }
 
-    private void quitGame() {
+    private void gameOver() {
         isGameOver = true;
     }
 
