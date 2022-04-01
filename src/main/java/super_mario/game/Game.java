@@ -5,15 +5,6 @@ import super_mario.mario.State;
 
 public class Game {
 
-
-    private boolean isGameOver = false;
-    private boolean isStartAgain = false;
-    private final boolean wasHit;
-
-    public Game(boolean wasHit) {
-        this.wasHit = wasHit;
-    }
-
     public void gameLoop(Mario mario) {
         if (wasHit(mario)) {
             if (mario.getState() == State.BIG) {
@@ -31,6 +22,17 @@ public class Game {
         if (mario.getLifeCount() <= 0) {
             gameOver();
         }
+    }
+
+    /********************* dummy implementation *********************************/
+
+    private boolean isGameOver = false;
+    private boolean isStartAgain = false;
+
+    private final boolean wasHit;
+
+    public Game(boolean wasHit) {
+        this.wasHit = wasHit;
     }
 
     private void restartLevel() {
