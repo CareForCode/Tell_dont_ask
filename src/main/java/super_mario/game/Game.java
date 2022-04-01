@@ -5,14 +5,6 @@ import super_mario.mario.Mario;
 public class Game {
 
 
-    private boolean isGameOver = false;
-    private boolean isStartAgain = false;
-    private final boolean wasHit;
-
-    public Game(boolean wasHit) {
-        this.wasHit = wasHit;
-    }
-
     public void gameLoop(Mario mario) {
         reduceStateIfWasHit(mario);
         checkKnockOut(mario);
@@ -42,6 +34,17 @@ public class Game {
         if (mario.isDefeated()) {
             gameOver();
         }
+    }
+
+
+    /******************************** dummy implementation ****************************************/
+
+    private boolean isGameOver = false;
+    private boolean isStartAgain = false;
+    private final boolean wasHit;
+
+    public Game(boolean wasHit) {
+        this.wasHit = wasHit;
     }
 
     private void restartLevel() {
